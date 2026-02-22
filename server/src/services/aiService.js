@@ -3,9 +3,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let openai;
+try {
+    openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY || 'dummy_key_to_prevent_crash_on_boot_if_missing',
+    });
+} catch (e) {
+    console.warn("OpenAI API key missing or invalid. AI features will mock responses.");
+}
 
 const extractSymptoms = async (text) => {
     if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'your_openai_api_key') {
