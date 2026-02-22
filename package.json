@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Root package for AWS App Runner deployment",
     "scripts": {
-        "build": "cd client && npm install && npm run build && cd ../server && npm install",
-        "start": "cd server && npm start"
+        "build": "npm --prefix client install --include=dev && npm --prefix client run build && npm --prefix server install",
+        "start": "npm --prefix server start"
     }
 }

@@ -1,0 +1,29 @@
+{
+    "ServiceName": "healthcare-triage",
+    "SourceConfiguration": {
+        "AuthenticationConfiguration": {
+            "ConnectionArn": "arn:aws:apprunner:us-east-1:628475585271:connection/policy-pal-connection/612384b917c343d6b6c07585acad6962"
+        },
+        "AutoDeploymentsEnabled": true,
+        "CodeRepository": {
+            "RepositoryUrl": "https://github.com/pratiksha27jain-priti/healthcare-triage-aws",
+            "SourceCodeVersion": {
+                "Type": "BRANCH",
+                "Value": "main"
+            },
+            "CodeConfiguration": {
+                "ConfigurationSource": "API",
+                "CodeConfigurationValues": {
+                    "Runtime": "NODEJS_22",
+                    "BuildCommand": "npm run build",
+                    "StartCommand": "npm start",
+                    "Port": "3000"
+                }
+            }
+        }
+    },
+    "InstanceConfiguration": {
+        "Cpu": "1 vCPU",
+        "Memory": "2 GB"
+    }
+}
