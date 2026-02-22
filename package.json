@@ -1,0 +1,9 @@
+{
+    "name": "healthcare-triage-root",
+    "version": "1.0.0",
+    "description": "Root package for AWS App Runner deployment",
+    "scripts": {
+        "build": "cd client && npm install && npm run build && cd ../server && npm install",
+        "start": "cd server && npm start"
+    }
+}
